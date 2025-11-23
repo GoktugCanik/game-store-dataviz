@@ -103,11 +103,27 @@ sb["downloads_weight"] = sb["estimated_downloads"] / sb.groupby("game_name")["ta
 fig_sunburst = px.sunburst(sb, path=["tags_list", "developer", "game_name"], values="downloads_weight", color="rating", color_continuous_scale="RdBu", title="Sunburst by Genre, Developer, and Game")
 st.plotly_chart(fig_sunburst, use_container_width=True)
 
-# Heatmap
-st.header("🔥 Heatmap: Correlation Matrix")
-heatmap_data = filtered[["estimated_downloads", "rating", "price", "length", "reviews_like_rate"]].dropna()
-fig_heatmap = px.imshow(heatmap_data.corr(), text_auto=".4f", title="Correlation Matrix", color_continuous_scale="Viridis",)
-st.plotly_chart(fig_heatmap, use_container_width=True)
+# Violin
+st.header("🎻 Violin: Estimated Downloads by Age Restriction")
+vi_data = filtered.copy()
+vi_data["age_val"] = pd.to_numeric(vi_data["age_restriction"], errors="coerce").fillna(0).astype(int)
+vi_data["age_label"] = vi_data["age_val"].map({0: "All Ages", 13: "Teen 13+", 17: "Mature 17+"}).fillna(vi_data["age_val"].astype(str))
+vi_top = st.slider("Max games (Violin)", 100, 2000, 800)
+vi_data = vi_data.dropna(subset=["estimated_downloads", "age_label"]).sort_values("estimated_downloads", ascending=False).head(vi_top)
+order_vi = vi_data.groupby("age_label")["estimated_downloads"].median().sort_values(ascending=False).index.tolist()
+fig_vi = px.violin(
+    vi_data,
+    x="age_label",
+    y="estimated_downloads",
+    color="age_label",
+    box=True,
+    points="outliers",
+    hover_data=["game_name", "developer"],
+    template="plotly_white",
+    title="Estimated downloads distribution by age restriction"
+)
+fig_vi.update_layout(xaxis=dict(categoryorder="array", categoryarray=order_vi))
+st.plotly_chart(fig_vi, use_container_width=True)
 
 # Line Chart
 st.header("📈 Downloads Per Year")
