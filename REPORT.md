@@ -28,4 +28,4 @@ Interactivity implementation, Line Chart, Icicle Chart, 3D Scatter   - Muzaffer 
 
 ## Repository
 
-Repo: https://github.com/GoktugCanik/game-store-dataviz.git.
+Repo: https://github.com/GoktugCanik/steam-games-dataviz.git
