@@ -17,7 +17,7 @@ Interactive Streamlit app for exploring a game store dataset using rich Plotly v
    ```
 3. Run the app:
    ```bash
-   streamlit run trae_app.py
+   streamlit run app.py
    ```
 
 ## Visualizations
