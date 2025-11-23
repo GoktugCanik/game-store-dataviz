@@ -123,13 +123,3 @@ td_data = data[["price", "rating", "length", "all_reviews_number","estimated_dow
 td_data = td_data.sort_values("estimated_downloads", ascending=False).head(200)
 fig_td = px.scatter_3d(td_data, x="price", y="rating", z="length", color="developer", size="all_reviews_number", hover_name="game_name", title="3D Scatter: Price vs Rating vs Length", template="plotly_white")
 st.plotly_chart(fig_td, width='stretch')
-
-#Swarm Plot 
-
-#Star Glyph
-
-#Sankey
-
-# Tag Co-occurrence Network Graph
-
-# Mekko Chart 
