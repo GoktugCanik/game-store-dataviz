@@ -27,8 +27,8 @@ Interactive Streamlit app for exploring a game store dataset using rich Plotly v
 - Parallel coordinates
 - Scatter/Bubble
 - Sunburst
+- Sankey Diagram
 - Violin
-- Line chart
 - 3D scatter
 - Icicle
 
@@ -62,10 +62,10 @@ Interactive Streamlit app for exploring a game store dataset using rich Plotly v
 * Technique: Violin
 * Insight: Whether “All Ages” games tend to accumulate more downloads than “Teen 13+” or “Mature 17+”.
 
-###### Line Chart
+###### Sankey Diagram
 
-* Technique: Line chart
-* Insight: Shows total downloads per year. Useful to identify trends over time in game popularity.
+* Technique: Sankey
+* Insight: Shows flow from Age Restriction → Genre → Price Type, highlighting which age groups prefer which genres and whether those genres are mostly free or paid.
 
 ###### Icicle Chart
 
