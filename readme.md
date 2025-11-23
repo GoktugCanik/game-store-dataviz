@@ -2,13 +2,6 @@
 
 Interactive Streamlit app for exploring a game store dataset using rich Plotly visualizations and practical filters. The dashboard surfaces insights across downloads, ratings, pricing, tags, and platform/language support.
 
-## Features
-
-- Sidebar filters: tags, developers, minimum downloads, release year range, free-only, OS, languages, and top-N.
-- 16+ visualizations including advanced types: treemap, sunburst, parallel coordinates, sankey, network, marimekko, 3D scatter, density heatmap, icicle.
-- Consistent labeling, hover tooltips, zoom/pan, and color scales for interpretability.
-- Performance optimization: heavy charts render the top 50 rows by `estimated_downloads`.
-
 ## Dataset
 
 - File: `data/bestSelling_games.csv`
@@ -34,7 +27,52 @@ Interactive Streamlit app for exploring a game store dataset using rich Plotly v
 - Parallel coordinates
 - Scatter/Bubble
 - Sunburst
-- Hetmanp
+- Violin
 - Line chart
 - 3D scatter
 - Icicle
+
+###### Bar Graph (px.bar)
+
+* Technique: Bar chart
+* Insight: Shows the top games by estimated downloads. Useful to quickly see which games are the most popular.
+
+###### Treemap (px.treemap)
+
+* Technique: Treemap
+* Insight: Shows downloads hierarchy by developer → free/paid → game. Reveals which developers dominate, and how free vs paid games contribute to downloads.
+
+###### Parallel Coordinates (px.parallel_coordinates)
+
+* Technique: Parallel coordinates
+* Insight: Compares numeric features (downloads, rating, price, length, difficulty) across multiple games. Highlights patterns and correlations among top games.
+
+###### Scatter/Bubble (px.scatter)
+
+* Technique: Scatter plot with bubble size
+* Insight: Plots price vs rating, bubble size = downloads. Helps identify how price relates to rating and which games are highly downloaded.
+
+###### Sunburst (px.sunburst)
+
+* Technique: Sunburst chart
+* Insight: Shows genre → developer → game with weighted downloads. Reveals which genres are most popular and which developers dominate top genres.
+
+###### Violin(px.imshow)
+
+* Technique: Violin
+* Insight: Whether “All Ages” games tend to accumulate more downloads than “Teen 13+” or “Mature 17+”.
+
+###### Line Chart (px.line)
+
+* Technique: Line chart
+* Insight: Shows total downloads per year. Useful to identify trends over time in game popularity.
+
+###### Icicle Chart (px.icicle)
+
+* Technique: Icicle chart (hierarchical bar)
+* Insight: Shows hierarchy of age restriction → primary genre → game. Helps understand which age groups dominate which genres and top games within those.
+
+###### 3D Scatter (px.scatter_3d)
+
+* Technique: 3D scatter plot
+* Insight: Plots difficulty, length, rating in 3D for top games. Helps see clusters of similar game profiles and differences in design complexity.
